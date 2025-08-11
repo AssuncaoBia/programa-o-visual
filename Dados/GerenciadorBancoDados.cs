@@ -25,7 +25,7 @@ namespace ListaDeTarefas.Dados
 
                 // Criar banco de dados se não existir
                 using var comandoCriarBanco = new MySqlCommand(
-                    "CREATE DATABASE IF NOT EXISTS listadetarefas CHARACTER SET utf8 COLLATE utf8_general_ci;", 
+                    "CREATE DATABASE IF NOT EXISTS listadetarefas CHARACTER SET utf8 COLLATE utf8_general_ci;",
                     conexao);
                 comandoCriarBanco.ExecuteNonQuery();
 
@@ -114,6 +114,89 @@ namespace ListaDeTarefas.Dados
             }
 
             return tabela;
+        }
+
+        public int InserirTarefa(string titulo, string descricao)
+        {
+            try
+            {
+                using var conexao = new MySqlConnection(_stringConexaoComBanco);
+                conexao.Open();
+
+                const string sql = "INSERT INTO tarefas (titulo, descricao, concluida, data_criacao) VALUES (@titulo, @descricao, 0, NOW()); SELECT LAST_INSERT_ID();";
+                using var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@titulo", titulo);
+                comando.Parameters.AddWithValue("@descricao", descricao);
+                object? result = comando.ExecuteScalar();
+                return Convert.ToInt32(result);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao inserir tarefa: {ex.Message}");
+                return -1;
+            }
+        }
+
+        public bool AtualizarTarefa(int id, string titulo, string descricao)
+        {
+            try
+            {
+                using var conexao = new MySqlConnection(_stringConexaoComBanco);
+                conexao.Open();
+
+                const string sql = "UPDATE tarefas SET titulo = @titulo, descricao = @descricao WHERE id = @id";
+                using var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@titulo", titulo);
+                comando.Parameters.AddWithValue("@descricao", descricao);
+                return comando.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao atualizar tarefa: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool MarcarConcluida(int id, bool concluida)
+        {
+            try
+            {
+                using var conexao = new MySqlConnection(_stringConexaoComBanco);
+                conexao.Open();
+
+                string sql = concluida
+                    ? "UPDATE tarefas SET concluida = 1, data_conclusao = NOW() WHERE id = @id"
+                    : "UPDATE tarefas SET concluida = 0, data_conclusao = NULL WHERE id = @id";
+
+                using var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@id", id);
+                return comando.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao atualizar status da tarefa: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool RemoverTarefa(int id)
+        {
+            try
+            {
+                using var conexao = new MySqlConnection(_stringConexaoComBanco);
+                conexao.Open();
+
+                const string sql = "DELETE FROM tarefas WHERE id = @id";
+                using var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@id", id);
+                return comando.ExecuteNonQuery() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao remover tarefa: {ex.Message}");
+                return false;
+            }
         }
     }
 } 

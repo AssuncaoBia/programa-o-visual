@@ -14,7 +14,6 @@ namespace ListaDeTarefas.Interface
         {
             InitializeComponent();
 
-            // Evita executar lógica quando aberto no Designer
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
             {
                 return;

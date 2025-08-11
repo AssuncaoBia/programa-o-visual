@@ -11,66 +11,64 @@ namespace ListaDeTarefas.Interface
 
         private void InitializeComponent()
         {
-            rotuloTitulo = new Label();
-            botaoRecarregar = new Button();
-            gradeTarefas = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)gradeTarefas).BeginInit();
-            SuspendLayout();
+            this.rotuloTitulo = new System.Windows.Forms.Label();
+            this.botaoRecarregar = new System.Windows.Forms.Button();
+            this.gradeTarefas = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeTarefas)).BeginInit();
+            this.SuspendLayout();
             // 
             // rotuloTitulo
             // 
-            rotuloTitulo.AutoSize = true;
-            rotuloTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            rotuloTitulo.Location = new Point(17, 20);
-            rotuloTitulo.Name = "rotuloTitulo";
-            rotuloTitulo.Size = new Size(319, 32);
-            rotuloTitulo.TabIndex = 0;
-            rotuloTitulo.Text = "Sistema de Lista de Tarefas";
+            this.rotuloTitulo.AutoSize = true;
+            this.rotuloTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rotuloTitulo.Location = new System.Drawing.Point(15, 15);
+            this.rotuloTitulo.Name = "rotuloTitulo";
+            this.rotuloTitulo.Size = new System.Drawing.Size(269, 25);
+            this.rotuloTitulo.TabIndex = 0;
+            this.rotuloTitulo.Text = "Sistema de Lista de Tarefas";
             // 
             // botaoRecarregar
             // 
-            botaoRecarregar.Location = new Point(17, 65);
-            botaoRecarregar.Margin = new Padding(3, 4, 3, 4);
-            botaoRecarregar.Name = "botaoRecarregar";
-            botaoRecarregar.Size = new Size(126, 45);
-            botaoRecarregar.TabIndex = 1;
-            botaoRecarregar.Text = "Recarregar";
-            botaoRecarregar.UseVisualStyleBackColor = true;
+            this.botaoRecarregar.Location = new System.Drawing.Point(15, 50);
+            this.botaoRecarregar.Name = "botaoRecarregar";
+            this.botaoRecarregar.Size = new System.Drawing.Size(110, 34);
+            this.botaoRecarregar.TabIndex = 1;
+            this.botaoRecarregar.Text = "Recarregar";
+            this.botaoRecarregar.UseVisualStyleBackColor = true;
             // 
             // gradeTarefas
             // 
-            gradeTarefas.AllowUserToAddRows = false;
-            gradeTarefas.AllowUserToDeleteRows = false;
-            gradeTarefas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            gradeTarefas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gradeTarefas.BackgroundColor = Color.White;
-            gradeTarefas.ColumnHeadersHeight = 29;
-            gradeTarefas.Location = new Point(17, 127);
-            gradeTarefas.Margin = new Padding(3, 4, 3, 4);
-            gradeTarefas.MultiSelect = false;
-            gradeTarefas.Name = "gradeTarefas";
-            gradeTarefas.ReadOnly = true;
-            gradeTarefas.RowHeadersWidth = 51;
-            gradeTarefas.RowTemplate.Height = 25;
-            gradeTarefas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gradeTarefas.Size = new Size(971, 560);
-            gradeTarefas.TabIndex = 2;
+            this.gradeTarefas.AllowUserToAddRows = false;
+            this.gradeTarefas.AllowUserToDeleteRows = false;
+            this.gradeTarefas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gradeTarefas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gradeTarefas.BackgroundColor = System.Drawing.Color.White;
+            this.gradeTarefas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gradeTarefas.Location = new System.Drawing.Point(15, 95);
+            this.gradeTarefas.MultiSelect = false;
+            this.gradeTarefas.Name = "gradeTarefas";
+            this.gradeTarefas.ReadOnly = true;
+            this.gradeTarefas.RowTemplate.Height = 25;
+            this.gradeTarefas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gradeTarefas.Size = new System.Drawing.Size(850, 420);
+            this.gradeTarefas.TabIndex = 2;
             // 
             // FormularioPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1010, 748);
-            Controls.Add(gradeTarefas);
-            Controls.Add(botaoRecarregar);
-            Controls.Add(rotuloTitulo);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "FormularioPrincipal";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lista de Tarefas";
-            ((System.ComponentModel.ISupportInitialize)gradeTarefas).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.gradeTarefas);
+            this.Controls.Add(this.botaoRecarregar);
+            this.Controls.Add(this.rotuloTitulo);
+            this.Name = "FormularioPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Lista de Tarefas";
+            ((System.ComponentModel.ISupportInitialize)(this.gradeTarefas)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
     }
 }

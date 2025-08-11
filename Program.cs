@@ -23,6 +23,13 @@ namespace ListaDeTarefas
                 return;
             }
 
+            using var telaLogin = new FormLogin();
+            var resultado = telaLogin.ShowDialog();
+            if (resultado != DialogResult.OK)
+            {
+                return;
+            }
+
             Application.Run(new FormularioPrincipal());
         }
     }
