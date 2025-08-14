@@ -18,6 +18,7 @@ namespace ListaDeTarefas.Interface
 
             botaoEntrar.Click += (s, e) => TentarLogin();
             botaoCancelar.Click += (s, e) => this.DialogResult = DialogResult.Cancel;
+            botaoCadastro.Click += (s, e) => AbrirCadastro();
 
             GarantirTabelaUsuarios();
         }
@@ -79,6 +80,15 @@ namespace ListaDeTarefas.Interface
             {
                 MessageBox.Show($"Erro ao validar login: {ex.Message}");
                 return false;
+            }
+        }
+
+        private void AbrirCadastro()
+        {
+            using var cadastro = new FormCadastro();
+            if (cadastro.ShowDialog(this) == DialogResult.OK)
+            {
+                MessageBox.Show("Cadastro realizado. Faça login.");
             }
         }
 

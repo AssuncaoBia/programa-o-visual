@@ -3,43 +3,45 @@ using System.Drawing;
 
 namespace ListaDeTarefas.Interface
 {
-    partial class FormLogin
+    partial class FormCadastro
     {
         private Label rotuloTitulo;
         private Label rotuloUsuario;
         private Label rotuloSenha;
+        private Label rotuloConfirmar;
         private TextBox caixaUsuario;
         private TextBox caixaSenha;
-        private Button botaoEntrar;
+        private TextBox caixaConfirmar;
+        private Button botaoCadastrar;
         private Button botaoCancelar;
-        private Button botaoCadastro;
 
         private void InitializeComponent()
         {
             rotuloTitulo = new Label();
             rotuloUsuario = new Label();
             rotuloSenha = new Label();
+            rotuloConfirmar = new Label();
             caixaUsuario = new TextBox();
             caixaSenha = new TextBox();
-            botaoEntrar = new Button();
+            caixaConfirmar = new TextBox();
+            botaoCadastrar = new Button();
             botaoCancelar = new Button();
-            botaoCadastro = new Button();
             SuspendLayout();
             // 
             // rotuloTitulo
             // 
             rotuloTitulo.AutoSize = true;
             rotuloTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            rotuloTitulo.Location = new Point(20, 15);
+            rotuloTitulo.Location = new Point(16, 12);
             rotuloTitulo.Name = "rotuloTitulo";
-            rotuloTitulo.Size = new Size(223, 32);
+            rotuloTitulo.Size = new Size(245, 32);
             rotuloTitulo.TabIndex = 0;
-            rotuloTitulo.Text = "Acesso ao Sistema";
+            rotuloTitulo.Text = "Cadastro de Usuário";
             // 
             // rotuloUsuario
             // 
             rotuloUsuario.AutoSize = true;
-            rotuloUsuario.Location = new Point(22, 60);
+            rotuloUsuario.Location = new Point(18, 56);
             rotuloUsuario.Name = "rotuloUsuario";
             rotuloUsuario.Size = new Size(62, 20);
             rotuloUsuario.TabIndex = 1;
@@ -48,70 +50,80 @@ namespace ListaDeTarefas.Interface
             // rotuloSenha
             // 
             rotuloSenha.AutoSize = true;
-            rotuloSenha.Location = new Point(22, 95);
+            rotuloSenha.Location = new Point(18, 92);
             rotuloSenha.Name = "rotuloSenha";
             rotuloSenha.Size = new Size(52, 20);
             rotuloSenha.TabIndex = 3;
             rotuloSenha.Text = "Senha:";
             // 
+            // rotuloConfirmar
+            // 
+            rotuloConfirmar.AutoSize = true;
+            rotuloConfirmar.Location = new Point(18, 128);
+            rotuloConfirmar.Name = "rotuloConfirmar";
+            rotuloConfirmar.Size = new Size(78, 20);
+            rotuloConfirmar.TabIndex = 5;
+            rotuloConfirmar.Text = "Confirmar:";
+            // 
             // caixaUsuario
             // 
-            caixaUsuario.Location = new Point(90, 56);
+            caixaUsuario.Location = new Point(120, 52);
             caixaUsuario.Name = "caixaUsuario";
-            caixaUsuario.Size = new Size(274, 27);
+            caixaUsuario.Size = new Size(260, 27);
             caixaUsuario.TabIndex = 2;
             // 
             // caixaSenha
             // 
-            caixaSenha.Location = new Point(90, 91);
+            caixaSenha.Location = new Point(120, 88);
             caixaSenha.Name = "caixaSenha";
             caixaSenha.PasswordChar = '•';
-            caixaSenha.Size = new Size(274, 27);
+            caixaSenha.Size = new Size(260, 27);
             caixaSenha.TabIndex = 4;
             // 
-            // botaoEntrar
+            // caixaConfirmar
             // 
-            botaoEntrar.Location = new Point(90, 147);
-            botaoEntrar.Name = "botaoEntrar";
-            botaoEntrar.Size = new Size(116, 34);
-            botaoEntrar.TabIndex = 5;
-            botaoEntrar.Text = "Entrar";
+            caixaConfirmar.Location = new Point(120, 124);
+            caixaConfirmar.Name = "caixaConfirmar";
+            caixaConfirmar.PasswordChar = '•';
+            caixaConfirmar.Size = new Size(260, 27);
+            caixaConfirmar.TabIndex = 6;
+            // 
+            // botaoCadastrar
+            // 
+            botaoCadastrar.Location = new Point(212, 168);
+            botaoCadastrar.Name = "botaoCadastrar";
+            botaoCadastrar.Size = new Size(90, 33);
+            botaoCadastrar.TabIndex = 7;
+            botaoCadastrar.Text = "Cadastrar";
             // 
             // botaoCancelar
             // 
-            botaoCancelar.Location = new Point(245, 147);
+            botaoCancelar.Location = new Point(308, 168);
             botaoCancelar.Name = "botaoCancelar";
-            botaoCancelar.Size = new Size(119, 34);
-            botaoCancelar.TabIndex = 6;
+            botaoCancelar.Size = new Size(78, 33);
+            botaoCancelar.TabIndex = 8;
             botaoCancelar.Text = "Cancelar";
             // 
-            // botaoCadastro
+            // FormCadastro
             // 
-            botaoCadastro.Location = new Point(172, 203);
-            botaoCadastro.Name = "botaoCadastro";
-            botaoCadastro.Size = new Size(105, 34);
-            botaoCadastro.TabIndex = 7;
-            botaoCadastro.Text = "Cadastro";
-            // 
-            // FormLogin
-            // 
-            AcceptButton = botaoEntrar;
+            AcceptButton = botaoCadastrar;
             CancelButton = botaoCancelar;
-            ClientSize = new Size(444, 249);
+            ClientSize = new Size(403, 225);
             Controls.Add(rotuloTitulo);
             Controls.Add(rotuloUsuario);
             Controls.Add(caixaUsuario);
             Controls.Add(rotuloSenha);
             Controls.Add(caixaSenha);
-            Controls.Add(botaoCadastro);
-            Controls.Add(botaoEntrar);
+            Controls.Add(rotuloConfirmar);
+            Controls.Add(caixaConfirmar);
+            Controls.Add(botaoCadastrar);
             Controls.Add(botaoCancelar);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FormLogin";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
+            Name = "FormCadastro";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Cadastro";
             ResumeLayout(false);
             PerformLayout();
         }
